@@ -52,4 +52,5 @@ production:
   <<: *default
   database: squirtle_production
   username: squirtle
-  password: <%= ENV['SQUIRTLE_DATABASE_PASSWORD'] %>
+  password: <%= Rails.application.credentials.gcp[:db_password] %>
+  socket: "<%= ENV.fetch("DB_SOCKET_DIR") { '/cloudsql' } %>/bao-ke-meng:us-west1:snorlax"
