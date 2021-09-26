@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    root to: 'dashboard#index'
+  end
+
   devise_for :users, path: 'auth', path_names: {
     sign_in: 'login',
     sign_out: 'logout',
@@ -8,7 +12,7 @@ Rails.application.routes.draw do
     registration: 'register',
     sign_up: 'signup'
   }
-  root 'pages#index'
-  
+
+  root 'admin/dashboard#index'
   Healthcheck.routes(self)
 end
