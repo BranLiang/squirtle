@@ -25,7 +25,7 @@ module Squirtle
       password: Rails.application.credentials.sendgrid_api_key,
       domain: 'corran.cn',
       address: 'smtp.sendgrid.net',
-      port: 465,
+      port: 587,
       authentication: :plain,
       enable_starttls_auto: true
     }

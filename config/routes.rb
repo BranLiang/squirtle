@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     confirmation: 'verification',
     unlock: 'unblock',
     registration: 'register',
-    sign_up: 'cmon_let_me_in'
+    sign_up: 'signup'
   }
   root 'pages#index'
   
