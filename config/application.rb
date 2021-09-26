@@ -18,5 +18,16 @@ module Squirtle
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      user_name: 'apikey',
+      password: Rails.application.credentials.sendgrid_api_key,
+      domain: 'corran.cn',
+      address: 'smtp.sendgrid.net',
+      port: 465,
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
   end
 end
