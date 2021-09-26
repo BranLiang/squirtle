@@ -33,6 +33,7 @@ gem 'rails-healthcheck'
 gem 'google-cloud-storage'
 gem 'devise'
 gem 'tailwindcss-rails'
+gem 'heroicon'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
