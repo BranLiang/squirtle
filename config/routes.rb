@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#index'
+    resources :jobs, only: [:create]
   end
 
   devise_for :users, path: 'auth', path_names: {

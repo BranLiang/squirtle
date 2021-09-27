@@ -18,7 +18,7 @@ local:
 google:
   service: GCS
   project: bao-ke-meng
-  credentials: <%= Base64.decode64(Rails.application.credentials.gcp[:storage_credentials]) %>
+  credentials: <%= Base64.decode64(Rails.application.credentials.gcp[:app_client_credentials]) %>
   bucket: metapod-<%= Rails.env %>
 
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)

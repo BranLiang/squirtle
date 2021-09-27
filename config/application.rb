@@ -29,5 +29,6 @@ module Squirtle
       authentication: :plain,
       enable_starttls_auto: true
     }
+    config.active_job.queue_adapter = :cloudtasker
   end
 end
