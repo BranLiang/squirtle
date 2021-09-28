@@ -35,6 +35,7 @@ gem 'devise'
 gem 'tailwindcss-rails'
 gem 'heroicon'
 gem 'cloudtasker'
+gem 'httparty'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
