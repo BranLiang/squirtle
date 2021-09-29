@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :jobs, only: [:create]
   end
 
+  post 'schedule/daily', to: 'scheduler#daily'
+
   devise_for :users, path: 'auth', path_names: {
     sign_in: 'login',
     sign_out: 'logout',
