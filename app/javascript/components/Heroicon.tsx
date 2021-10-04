@@ -2,8 +2,10 @@ import * as OutlineIcons from '@heroicons/react/outline'
 import * as SolidIcons from '@heroicons/react/solid'
 import React from 'react';
 
+export type IconNames = keyof typeof OutlineIcons
+
 export interface Props extends React.SVGProps<SVGSVGElement> {
-  icon: keyof typeof OutlineIcons
+  icon: IconNames
   variant: 'solid' | 'outline'
 }
 
