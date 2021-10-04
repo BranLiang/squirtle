@@ -7,6 +7,17 @@ import Button, { Props } from '../Button'
 export default {
   title: 'Button',
   component: Button,
+  argTypes: {
+    disabled: {
+      control: { type: 'boolean' }
+    },
+    round: {
+      control: { type: 'boolean' }
+    },
+    block: {
+      control: { type: 'boolean' }
+    }
+  }
 } as Meta
 
 const Template: Story<Props> = (args) => <Button {...args} />
