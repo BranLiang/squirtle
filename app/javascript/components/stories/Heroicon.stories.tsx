@@ -11,9 +11,16 @@ export default {
 
 const Template: Story<Props> = (args) => <Heroicon {...args} />
 
-export const Heart: Story<Props>  = Template.bind({})
-Heart.args = {
+export const Outline: Story<Props>  = Template.bind({})
+Outline.args = {
   icon: "HeartIcon",
   variant: "outline",
+  className: "h-6 w-6 text-red-500",
+}
+
+export const Solid: Story<Props>  = Template.bind({})
+Solid.args = {
+  icon: "HeartIcon",
+  variant: "solid",
   className: "h-6 w-6 text-red-500",
 }
