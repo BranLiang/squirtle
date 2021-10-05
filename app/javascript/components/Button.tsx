@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Heroicon, { IconNames } from './Heroicon';
+import Heroicon, { IconName, IconVariant } from './Heroicon';
 
 const theme = {
   base: 'inline-flex items-center justify-center border font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
@@ -39,9 +39,9 @@ export interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   disabled: boolean
   block: boolean
   round: boolean
-  icon?: IconNames,
+  icon?: IconName,
   iconPosition?: 'leading' | 'tailing',
-  iconVariant?: 'outline' | 'solid'
+  iconVariant?: IconVariant
 }
 
 const Button = ({
