@@ -3,11 +3,12 @@ import classNames from "classnames";
 import Heroicon, { IconName, IconVariant } from './Heroicon';
 
 const theme = {
-  base: 'relative inline-flex items-center border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500',
-  basic: 'px-4 py-2',
-  iconOnly: 'px-2 py-2',
-  stats: 'px-3 py-2',
+  base: 'relative inline-flex items-center border border-gray-300 bg-white text-sm font-medium hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500',
+  basic: 'px-4 py-2 text-gray-700',
+  iconOnly: 'px-2 py-2 text-gray-500',
+  stats: 'px-3 py-2 text-gray-700',
   icon: '-ml-1 mr-2 h-5 w-5 text-gray-400',
+  checkbox: 'px-2 py-2',
   position: {
     leading: 'rounded-l-md',
     tailing: '-ml-px rounded-r-md',
@@ -44,14 +45,14 @@ export const ButtonGroup = ({
 export interface BasicButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   position?: Position
   icon?: IconName
-  variant?: IconVariant
+  iconVariant?: IconVariant
 }
 
 export const BasicButton = ({
   position,
   children,
   icon,
-  variant,
+  iconVariant,
 }: BasicButtonProps) => {
   const styles = classNames(
     theme.base,
@@ -64,7 +65,7 @@ export const BasicButton = ({
     iconElement = (
       <Heroicon
         icon={icon}
-        variant={variant}
+        variant={iconVariant}
         className={theme.icon}
       />
     )
@@ -125,5 +126,30 @@ export const StatsButton = ({
     <button className={styles}>
       {children}
     </button>
+  )
+}
+
+export interface CheckboxProps extends React.HTMLAttributes<HTMLInputElement> {
+  checked?: boolean
+  position?: Position
+}
+
+export const CheckboxButton = ({
+  position,
+  checked = false,
+}: CheckboxProps) => {
+  const styles = classNames(
+    theme.base,
+    theme.checkbox,
+    theme.position[position],
+  )
+  return (
+    <span className={styles}>
+      <input
+        type="checkbox"
+        checked={checked}
+        className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+      />
+    </span>
   )
 }
