@@ -1,9 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 import Heroicon, { IconName, IconVariant } from './Heroicon';
+import { primaryColor } from './theme';
 
 const theme = {
-  base: 'inline-flex items-center justify-center border font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
+  base: 'inline-flex items-center justify-center border font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2',
   block: 'w-full',
   round: 'rounded-full',
   size: {
@@ -27,9 +28,9 @@ const theme = {
       sm: '-mr-0.5 ml-2 h-4 w-4',
     }
   },
-  primary: 'border-transparent text-white bg-indigo-600 hover:bg-indigo-700',
-  secondary: 'border-transparent text-indigo-700 bg-indigo-100 hover:bg-indigo-200',
-  white: 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50',
+  primary: `border-transparent text-white bg-${primaryColor}-600 hover:bg-${primaryColor}-700 focus:ring-${primaryColor}-500`,
+  secondary: `border-transparent text-${primaryColor}-700 bg-${primaryColor}-100 hover:bg-${primaryColor}-200 focus:ring-${primaryColor}-300`,
+  white: `border-gray-300 text-gray-700 bg-white hover:bg-gray-50 focus:ring-${primaryColor}-300`,
   disabled: 'opacity-50 cursor-not-allowed',
 }
 
@@ -59,8 +60,7 @@ const Button = ({
   const styles = classNames(
     theme.base,
     block && theme.block,
-    variant === 'primary' && theme.primary,
-    variant === 'secondary' && theme.secondary,
+    theme[variant],
     size === 'xs' && theme.size.xs,
     size === 'sm' && theme.size.sm,
     size === 'md' && theme.size.md,
@@ -90,6 +90,7 @@ const Button = ({
   return (
     <button
       className={styles}
+      disabled={disabled}
       {...others}
     >
       {icon && iconPosition === 'leading' && iconElement}
